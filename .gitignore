@@ -1,3 +1,9 @@
+/.idea/hotswap_agent.xml
+/javaClassBatch2.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
