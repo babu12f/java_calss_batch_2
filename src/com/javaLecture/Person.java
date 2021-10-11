@@ -3,7 +3,7 @@ package com.javaLecture;
 public class Person {
     private String name;
     private int age;
-    private final String country = "bangaledesh";
+    public static String country = "bangaledesh";
 
     public Person(String name, int age) {
         this.name = name;
@@ -23,6 +23,10 @@ public class Person {
 
     public void walk() {
         System.out.println("walking");
+    }
+
+    public static void doSomething() {
+        System.out.println("doning");
     }
 
     public void walk(int speed) {
