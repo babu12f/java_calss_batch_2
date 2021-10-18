@@ -1,21 +1,15 @@
 package com.javaLecture;
 
-public class Animal {
-    private String name;
+public abstract class Animal {
+    private int numberOfLeg;
 
-    public void eat() {
-        System.out.println("Eating");
+    public Animal(int numberOfLeg) {
+        this.numberOfLeg = numberOfLeg;
     }
 
-    private void sleep() {
-        System.out.println("sleeping");
+    public void sleep() {
+        System.out.println("Sleeping");
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public abstract void food();
 }
