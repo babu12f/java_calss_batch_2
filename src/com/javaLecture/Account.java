@@ -1,32 +1,59 @@
 package com.javaLecture;
 
 public class Account {
-    private String name;
-    private Double balance;
+    private String customerName;
+    private String customerID;
+    private double balance;
+    private double lastTransaction;
+    private String lastTransactionType;
 
-    public void deposit(Double amount) {
-        balance = balance + amount;
+    public Account(String customerName, String customerID, double balance) {
+        this.customerName = customerName;
+        this.customerID = customerID;
+        this.balance = balance;
     }
 
-    public void withDraw(Double amount) {
-        if (balance >= amount) {
-            balance = balance - amount;
+    public void withdraw(double amount) {
+        if (this.balance >= amount) {
+            this.balance = this.balance - amount;
+            this.lastTransaction = amount;
+            this.lastTransactionType = "WITHDRADW";
         }
     }
 
-    public Double getBalance() {
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance = this.balance + amount;
+            this.lastTransaction = amount;
+            this.lastTransactionType = "DEPOSITE";
+        }
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+
+    public double getBalance() {
         return balance;
     }
 
-    public String getName() {
-        return name;
+    public double getLastTransaction() {
+        return lastTransaction;
     }
 
-    public void setName(String userName) {
-        name = userName;
-    }
-
-    private void someMethod() {
-        System.out.println("some method");
+    public String getLastTransactionType() {
+        return lastTransactionType;
     }
 }
