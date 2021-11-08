@@ -54,7 +54,7 @@ public class Class15Rep {
         }
         System.out.println(myQ);*/
 
-        List<Student> stdList = new ArrayList<>();
+        /*List<Student> stdList = new ArrayList<>();
 
         Student s3 = new Student(3, "abrr");
         Student s1 = new Student(1, "khalid");
@@ -70,7 +70,7 @@ public class Class15Rep {
 
         for (Student s: stdList) {
             System.out.println(s);
-        }
+        }*/
 
         /*Vector<Integer> myList = new Vector<>();
 
@@ -86,67 +86,3 @@ public class Class15Rep {
 
 }
 
-
-class stdRollComparatorName implements Comparator<Student> {
-
-    @Override
-    public int compare(Student o1, Student o2) {
-        if (o1.getName().length() == o2.getName().length()) {
-            return 0;
-        }
-        else if (o1.getName().length() < o2.getName().length()) {
-            return 1;
-        }
-
-        return -1;
-    }
-}
-
-class stdRollComparator2 implements Comparator<Student> {
-
-    @Override
-    public int compare(Student o1, Student o2) {
-        if (o1.getRoll() == o2.getRoll()) {
-            return 0;
-        }
-        else if (o1.getRoll() < o2.getRoll()) {
-            return 1;
-        }
-
-        return -1;
-    }
-}
-
-class Student {
-    private int roll;
-    private String name;
-
-    public Student(int roll, String name) {
-        this.roll = roll;
-        this.name = name;
-    }
-
-    public int getRoll() {
-        return roll;
-    }
-
-    public void setRoll(int roll) {
-        this.roll = roll;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "roll=" + roll +
-                ", name='" + name + '\'' +
-                '}';
-    }
-}
