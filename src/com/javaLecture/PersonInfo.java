@@ -17,6 +17,12 @@ public class PersonInfo {
         this.address = address;
     }
 
+    public PersonInfo(String name, Integer age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
     public Integer getId() {
         return id;
     }
