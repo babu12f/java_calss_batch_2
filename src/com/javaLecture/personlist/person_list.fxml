@@ -18,7 +18,7 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" text="Edit" />
+                <MenuItem mnemonicParsing="false" text="Edit" onAction="#clickOnEditCM"/>
                 <MenuItem mnemonicParsing="false" text="Delete" onAction="#clickOnDeleteCM" />
                 <MenuItem mnemonicParsing="false" text="Refresh" />
               </items>

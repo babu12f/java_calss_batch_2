@@ -2,14 +2,22 @@ package com.javaLecture.personlist;
 
 import com.javaLecture.PersonInfo;
 import com.javaLecture.PersonInfoRepository;
+import com.javaLecture.editPerson.EditPersonController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +56,7 @@ public class PersonListController implements Initializable {
     private void clickOnDeleteCM() {
         PersonInfo person = tableView.getSelectionModel().getSelectedItem();
 
-        /*if (person == null) {
+        if (person == null) {
             return;
         }
 
@@ -61,16 +69,41 @@ public class PersonListController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
-           *//* Integer id = person.getId();
+            Integer id = person.getId();
             repository.deletePersonInfoById(id);
+
             Alert deleteInfoAlert = new Alert(Alert.AlertType.INFORMATION);
 
             deleteInfoAlert.setTitle("Delete Success");
             deleteInfoAlert.setContentText("Data Deleted successfully !!!");
-            deleteInfoAlert.showAndWait();*//*
+            deleteInfoAlert.showAndWait();
         }
         else {
             System.out.println("click cancel");
-        }*/
+        }
+
+    }
+
+    @FXML
+    private void clickOnEditCM() throws IOException {
+        PersonInfo person = tableView.getSelectionModel().getSelectedItem();
+
+        if (person == null) {
+            return;
+        }
+
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../editPerson/edit_person.fxml"));
+
+        AnchorPane root = loader.load();
+        EditPersonController controller = loader.getController();
+
+        controller.fillEditPersonForm(person);
+
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.show();
     }
 }
